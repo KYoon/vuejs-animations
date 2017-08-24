@@ -1,0 +1,258 @@
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+input, button, select {
+  padding: 0;
+  border: 0;
+  background-color: inherit;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+/*
+Color Palette:
+https://coolors.co/8bd096-91ccc8-f4f1b7-f2ee83-c1bf72
+
+Colors:
+floral-white:
+ - #FEFDFB;
+ - rgba(254, 253, 251, 1);
+eerie-black:
+ - #1E1E12;
+ - rgba(58, 41, 12, 1);
+dark-sea-green: 
+ - #8BD096;
+ - rgba(130, 33, 82, 1);
+middle-blue-green:
+ - #91CCC8;
+ - rgba(176, 29, 80, 1);
+blond:
+ - #F4F1B7;
+ - rgba(57, 25, 96, 1);
+sunny:
+ - #F2EE83;
+ - rgba(58, 46, 95, 1);
+dark-khaki:
+ - #C1BF72;
+ - rgba(58, 41, 76, 1);
+*/
+/* 
+--------------------------------
+--------- todolist-app ---------
+--------------------------------
+*/
+.todolist {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notebook {
+  max-width: 50em;
+  min-width: 40em;
+  height: 40em;
+  overflow: hidden;
+  background-color: #FEFDFB;
+  position: relative;
+
+  border-radius: 10px;
+
+  -webkit-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.75);
+}
+.completed-action {
+  display: flex;
+  padding: 0.75em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* 
+--------------------------------
+--------------------------------
+*/
+
+
+
+
+
+/* 
+-----------------------------------
+--------- todolist-title ----------
+-----------------------------------
+*/
+
+.todolist-title {
+  margin: 0.75em;
+}
+
+.title {
+  width: 100%;
+  font-size: 3em;
+}
+
+/* 
+-----------------------------------
+-----------------------------------
+*/
+
+
+
+
+/* 
+-----------------------------------
+----------- create-item -----------
+-----------------------------------
+*/
+
+.create-item {
+  background-color: #F4F1B7;
+  padding: 0.75em;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-input {
+  font-size: 1.5em;
+  width: 100%;
+  padding: 0.25em;
+  color: #1E1E12;
+  border-bottom: 1px solid #1E1E12;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.buttons {
+  display: flex;
+  align-self: flex-end;
+  margin: 1em 0 0.25em 0;
+}
+
+.item-button {
+  margin-left: 0.75em;
+  padding: 0.5em;
+  border: 1px solid #1E1E12;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.item-button:hover {
+  background-color: #8BD096;
+  color: #FEFDFB;
+}
+
+.clear {
+
+}
+.clear:hover {
+  background-color: #C1BF72;
+  color: #FEFDFB;
+}
+
+/* 
+-----------------------------------
+-----------------------------------
+*/
+
+
+
+
+/* 
+-----------------------------------
+-------------- items --------------
+-----------------------------------
+*/
+
+
+
+/* 
+-----------------------------------
+-----------------------------------
+*/
+
+
+
+
+
+/* 
+-----------------------------------
+-------------- item --------------
+-----------------------------------
+*/
+
+.item {
+  display: flex;
+  justify-content: space-around;
+  height: 4em;
+}
+
+.priority {
+  align-self: center;
+  flex-grow: 1;
+  -webkit-appearance: inherit;
+  font-size: 1.5em;
+  padding-left: 0.75em;
+}
+.status {
+  flex-grow: 1; 
+}
+.text {
+  flex-grow: 10;
+  display: flex;
+  justify-content: flex-start;
+  align-self: center;
+  font-size: 1.5em;
+}
+.remove {
+  flex-grow: 1;
+}
+
+.priority-graphic {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.low {
+  color: blue;
+}
+.medium {
+  color: yellow;
+}
+.high {
+  color: red;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.svg-icon {
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+  fill: #8BD096;
+}
+
+/* 
+-----------------------------------
+-----------------------------------
+*/
