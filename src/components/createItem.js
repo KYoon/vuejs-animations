@@ -28,6 +28,7 @@
 
     methods: {
       addItem() {
+        this.$store.commit("changeAnimationEffect", "list")
         this.$emit("add-item", this.item)
         this.reset()
       },

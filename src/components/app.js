@@ -37,6 +37,7 @@
 
     methods: {
       completeItems() {
+        this.$store.commit("changeAnimationEffect", "list")
         this.items = this.items.filter((item) => {
           return item.checked === false
         })
