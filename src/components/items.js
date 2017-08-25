@@ -1,7 +1,9 @@
 ((() => {
   const html = `
   <div class="items">
-    <item v-for="(item, index) in items" key="index" :item="item" :index="index" @toggle-checked="passToggleChecked" @change-priority="passChangePriority"></item>
+    <transition-group name="flip-list">
+      <item v-for="(item, index) in items" v-bind:key="item" :item="item" :index="index" @toggle-checked="passToggleChecked" @change-priority="passChangePriority"></item>
+    </transition-group>
   </div>
   `
 
