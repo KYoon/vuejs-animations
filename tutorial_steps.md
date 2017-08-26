@@ -25,14 +25,14 @@ animations can change the feel of a design! It almost feels like a completely di
  Now that you're hopefully psyched up about transitions and animations let's discuss how to implement them in a Vue.js app!
  Vue provides a transition wrapper component out of the box that allows you to add enter and leave transtions for any element 
  in one of four contexts:
- * conditional rendering (v-if)
- * conditional display (v-show)
- * dynamic components (is="component-name")
+ * conditional rendering `v-if`
+ * conditional display `v-show`
+ * dynamic components `is="component-name"`
  * component root nodes
  
  The most basic form way to trigger a transition are the first two bullets. Let's dive in and see how to implement these!
  
- ## Step-1 First Transition
+ ### Step-1 First Transition
  
 Open the app in your favorite text editor. Here you'll see a functioning todo list app with no transitions applied. After 
 playing around with it you'll notice that some of the actions can be pretty jarring. This can be solved with some transitions.
