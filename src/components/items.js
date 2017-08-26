@@ -2,7 +2,7 @@
   const html = `
   <div class="items">
     <div class="items-wrapper">
-      <transition-group name="list">
+      <transition-group name="list-bounce">
         <item v-for="(item, index) in items" v-bind:key="item.id" :item="item" :index="index" @toggle-checked="passToggleChecked" @change-priority="passChangePriority"></item>
       </transition-group>
     </div>
