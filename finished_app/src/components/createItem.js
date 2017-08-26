@@ -2,10 +2,12 @@
   const html = `
   <div class="create-item">
     <input v-on:keyup.enter="addItem()" class="item-input" v-model="item" placeholder="Add item to todo list">
-    <div v-if="showActions" class="buttons">
-      <a v-on:click.stop.prevent="addItem()" class="item-button add">Add Item</a>
-      <a v-on:click.stop.prevent="reset()" class="item-button clear">Clear</a>
-    </div>
+    <transition name="fade">
+      <div v-if="showActions" class="buttons">
+        <a v-on:click.stop.prevent="addItem()" class="item-button add">Add Item</a>
+        <a v-on:click.stop.prevent="reset()" class="item-button clear">Clear</a>
+      </div>
+    </transition>
   </div>
   `
 
