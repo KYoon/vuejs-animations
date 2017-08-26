@@ -1,8 +1,8 @@
 ((() => {
   const html = `
   <div class="items">
-    <transition-group name="flip-list">
-      <item v-for="(item, index) in items" v-bind:key="item" :item="item" :index="index" @toggle-checked="passToggleChecked" @change-priority="passChangePriority"></item>
+    <transition-group v-bind:name="listAnimation">
+      <item v-for="(item, index) in items" v-bind:key="item.id" :item="item" :index="index" @toggle-checked="passToggleChecked" @change-priority="passChangePriority"></item>
     </transition-group>
   </div>
   `
@@ -17,7 +17,14 @@
       }
     },
 
+    computed: {
+      listAnimation() {
+        return this.$store.state.animationEffect
+      }
+    },
+
     methods: {
+
       passChangePriority(priority, index) {
         this.$emit("change-priority", priority, index)
       },

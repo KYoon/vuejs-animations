@@ -1,7 +1,7 @@
 ((() => {
   const html = `
   <div class="create-item">
-    <input class="item-input" v-model="item" placeholder="Add item to todolist">
+    <input v-on:keyup.enter="addItem()" class="item-input" v-model="item" placeholder="Add item to todo list">
     <transition name="fade">
       <div v-if="showActions" class="buttons">
         <a v-on:click.stop.prevent="addItem()" class="item-button add">Add Item</a>
@@ -28,6 +28,8 @@
 
     methods: {
       addItem() {
+        if (!this.item.length > 0) {return}
+        this.$store.commit("changeAnimationEffect", "list")
         this.$emit("add-item", this.item)
         this.reset()
       },

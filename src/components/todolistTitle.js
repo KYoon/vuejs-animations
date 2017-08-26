@@ -1,7 +1,7 @@
 ((() => {
   const html = `
   <div class="todolist-title">
-    <input class="title" v-model="title" placeholder="Todolist Title">
+    <input v-focus class="title" v-model="title" placeholder="Todo list Title">
   </div>
   `
 
@@ -11,6 +11,14 @@
     data() {
       return {
         title: ""
+      }
+    },
+
+    directives: {
+      focus: {
+        inserted: function (el) {
+          el.focus()
+        }
       }
     }
   })
