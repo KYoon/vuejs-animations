@@ -19,11 +19,11 @@ Before we begin talking details, I think it is also important to note the differ
  * dynamic components `is="component-name"`
  * component root nodes
  
-We will primarily be focusing on the first two bullets in this tutorial. So let's dive in and see how to implement these!
+So let's dive in and see how to implement some transitions!
  
  ### Step-1 First Transition
  
-Open the app in your favorite text editor. Here you'll see a functioning todo list app with no transitions applied. After playing around with it you'll notice that some of the actions can be pretty jarring. This can be solved with some transitions. A good place to start is the `createItem` component. This component is made up of an `<input>` tag and some `<a>` tag action buttons. You can see that they are rendered conditionally using a `v-if` so that they are only visible when there is actually some text in the input box. This way we only allow the user to add an item when there is something to add. Let's add a transition to these buttons so that showing and hiding them is a little smoother and easier on the eyes. 
+Open the app in your favorite text editor. Here you'll see a functioning todo list app with no transitions applied. After playing around with it you'll notice that some of the actions can be pretty jarring. Let's fix this. A good place to start is the `createItem` component. This component is made up of an `<input>` tag and some `<a>` tag action buttons. You can see that they are rendered conditionally using a `v-if` so that they are only visible when there is actually some text in the input box. This way we only allow the user to add an item when there is something to add. Let's add a transition to these buttons so that showing and hiding them is a little smoother and easier on the eyes. 
 
 First, we need to wrap our conditionally rendered html in a `<transition></transition>` tag.
 
@@ -71,7 +71,7 @@ Now that we have all the classes we need, we can apply some css that will create
 }
 ```
 
-That's all there is to it! Now the buttons should fade in and out over one course of one second. You may want to tweak the transition duration to a time you see fit, I personally like `0.25s` for my effects, but to each there own. This is awesome, but what if we wanted to add another transition on a different element? We wouldn't be able to do it cleanly as the name space of the transitions would collide. Lucky for us, the transition wrapper component can take a name attribute. This attribute will prefix our 6 css classes with that name. So let's make that change.
+That's all there is to it! Now the buttons should fade in and out over one course of one second. You may want to tweak the transition duration to a time you see fit, I personally like `0.25s` for my effects, but for learning purposes `1s` is much more pronounced. This is awesome, but what if we wanted to add another transition on a different element? We wouldn't be able to do it cleanly as the name space of the transitions would collide. Lucky for us, the transition wrapper component can take a name attribute. This attribute will prefix our 6 css classes with that name. So let's make that change. Since it is a fade, let's name it fade!
 
 `createItem.js`
 ```html
@@ -95,6 +95,12 @@ That's all there is to it! Now the buttons should fade in and out over one cours
 }
 ```
 
-This allows us to scope and reuse our animations across our app!
+This allows us to scope and reuse our animations across our app! This is just an example of a simple transition, but the possibilities are endless. 
 
 ### Step-2 List Transitions
+
+Now that we know some of the basics about transitions, let's tackle something a bit more challenging - adding transitions to the list items. 
+
+
+
+
