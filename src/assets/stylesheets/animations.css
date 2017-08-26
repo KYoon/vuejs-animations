@@ -4,3 +4,16 @@
 .fade-enter, .fade-leave-to {
   opacity: 0
 }
+
+.list-move {
+  transition: transform 1s;
+}
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+  position: absolute;
+  width: 100%;
+}
+.list-enter, .list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}

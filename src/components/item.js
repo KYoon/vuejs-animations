@@ -38,9 +38,7 @@
 
     methods: {
       changePriority(event) {
-        this.$store.dispatch("changeAnimationEffect", "flip-list").then(() => {
-          this.$emit("change-priority", event.target.value, this.index)
-        })
+        this.$emit("change-priority", event.target.value, this.index)
       },
 
       toggleChecked() {

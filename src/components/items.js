@@ -1,7 +1,11 @@
 ((() => {
   const html = `
   <div class="items">
-    <item v-for="(item, index) in items" v-bind:key="item.id" :item="item" :index="index" @toggle-checked="passToggleChecked" @change-priority="passChangePriority"></item>
+    <div class="items-wrapper">
+      <transition-group name="list">
+        <item v-for="(item, index) in items" v-bind:key="item.id" :item="item" :index="index" @toggle-checked="passToggleChecked" @change-priority="passChangePriority"></item>
+      </transition-group>
+    </div>
   </div>
   `
 
@@ -12,12 +16,6 @@
       items: {
         type: Array,
         required: true
-      }
-    },
-
-    computed: {
-      listAnimation() {
-        return this.$store.state.animationEffect
       }
     },
 
