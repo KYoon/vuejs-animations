@@ -38,13 +38,13 @@
 
     methods: {
       completeItems() {
-        this.$store.commit("changeAnimationEffect", "list")
         this.items = this.items.filter((item) => {
           return item.checked === false
         })
       },
 
       handleAddItem(item) {
+        // give the item an id for list transition
         this.items.push({id: this.itemIndex, priority: 'low', checked: false, text: item})
         this.itemIndex += 1
       },

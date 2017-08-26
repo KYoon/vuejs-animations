@@ -29,7 +29,6 @@
     methods: {
       addItem() {
         if (!this.item.length > 0) {return}
-        this.$store.commit("changeAnimationEffect", "list")
         this.$emit("add-item", this.item)
         this.reset()
       },

@@ -215,6 +215,10 @@ dark-khaki:
   overflow-y: scroll;
   flex-grow: 1;
   background-color: #F4F3DC;
+  padding: 0 1em;
+}
+.items-wrapper {
+  position: relative;
 }
 
 
@@ -236,8 +240,6 @@ dark-khaki:
 .item {
   border-bottom: 1px solid black;
   /*border-top: 1px solid black;*/
-  margin: 0 0.75em 0 0.75em;
-  padding: 0 0.25em 0 0.25em;
   display: flex;
   justify-content: space-around;
   min-height: 4em;
