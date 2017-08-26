@@ -18,9 +18,9 @@ animations can change the feel of a design! It almost feels like a completely di
  be much more complex than transitions.
  
  
- # How?
+ ## How?
  
- ## Basics
+ ### Basics
  
  Now that you're hopefully psyched up about transitions and animations let's discuss how to implement them in a Vue.js app!
  Vue provides a transition wrapper component out of the box that allows you to add enter and leave transtions for any element 
