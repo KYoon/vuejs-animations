@@ -156,3 +156,53 @@ Here we simply add the css move hook and give it a transition. We also can add a
 
 There we go! Now our list is much more responsive.
 
+### Bonus List Animation
+
+We spent all this time talking about transitions, let's throw in an animation for fun! 
+
+Instead of a simple slide in, let's make our list components bounce in and out of the list. Let's change the name of our `transition-group` component so we don't tamper with our nice and neat `list` transition. 
+
+```html
+...
+<transition-group name="list-bounce">
+  <item v-for="(item, index) in items" v-bind:key="item.id" :item="item" :index="index" @togglechecked="passToggleChecked" @change-priority="passChangePriority"></item>
+</transition-group>
+...
+```
+`items.js`
+
+And let's add a css animation on our active enter and leave css hooks.
+
+```css
+.list-bounce-enter-active, .list-bounce-leave-active {
+  position: absolute;
+  width: 100%;
+}
+.list-bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.list-bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+```
+`animations.css`
+
+Here you'll notice a couple things. We've defined a css animation called bounce-in. All it does is transform the scale of our element over some duration. You'll notice that we've seperated out the animation on the `enter-active` and `leave-active` class so that we can play the animation fowards and backwards depending on the action. And finally our `v-enter` and `v-leave-to` hooks. They are not necessary because the animation takes care of this. 
+
+### Challenge
+
+There is one element left that we didn't apply any transition or animation to! This is the `<div class="completed-action">` in `app.js`. Now that you know the basics of implementing Vue transitions and animations, try giving this button a fun new effect!
+
+Also look out for the next post about transitions and animations using Vue. We will be looking at some more advanced concepts including creating reusable custom transitions, javascript hooks with transitions, and some other transitioning scenarios.
