@@ -1,7 +1,7 @@
 ((() => {
   const html = `
     <div class="todolist">
-      <div class="notebook">
+      <div class="col-9 notebook">
         <todolist-title></todolist-title>
         <create-item @add-item="handleAddItem"></create-item>
         <items :items="prioritizedItems" @toggle-checked="handleToggleChecked" @change-priority="handleChangePriority"></items>
@@ -16,7 +16,8 @@
     template: html,
     data(){
       return {
-        items: []
+        items: [],
+        itemIndex: 0
       }
     },
 
@@ -44,7 +45,8 @@
       },
 
       handleAddItem(item) {
-        this.items.push({priority: 'low', checked: false, text: item})
+        this.items.push({id: this.itemIndex, priority: 'low', checked: false, text: item})
+        this.itemIndex += 1
       },
 
       handleChangePriority(priority, index) {

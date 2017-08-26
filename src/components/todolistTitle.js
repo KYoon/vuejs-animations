@@ -1,7 +1,7 @@
 ((() => {
   const html = `
   <div class="todolist-title">
-    <input class="title" v-model="title" placeholder="Todolist Title">
+    <input class="title" v-model="title" placeholder="Todo list Title">
   </div>
   `
 

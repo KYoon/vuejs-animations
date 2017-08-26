@@ -2,7 +2,7 @@
   const html = `
   <div class="items">
     <transition-group v-bind:name="listAnimation">
-      <item v-for="(item, index) in items" v-bind:key="item" :item="item" :index="index" @toggle-checked="passToggleChecked" @change-priority="passChangePriority"></item>
+      <item v-for="(item, index) in items" v-bind:key="item.id" :item="item" :index="index" @toggle-checked="passToggleChecked" @change-priority="passChangePriority"></item>
     </transition-group>
   </div>
   `
