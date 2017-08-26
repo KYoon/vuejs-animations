@@ -4,7 +4,7 @@
 
 Transitions and animations are a very useful and important design tool. They can be used to influence or focus user action, 
 make content more readable, and make designs more kinetic and engaging. One of my favorite videos about the power of animations
-is this one - [Juice it or lose it - a talk by Martin Jonasson & Petri Purho](https://www.youtube.com/watch?v=Fy0aCDmgnxg)
+is this one - [Juice it or lose it - a talk by Martin Jonasson & Petri Purho](https://www.youtube.com/watch?v=Fy0aCDmgnxg).
 They call adding animations to something making it *juicey* which I think just is the best and most fun way to describe 
 making a design more engaging! While they are speaking of animations in terms of game design, the power that they can have is 
 very clear! If you don't have time to check out the whole video at least watch the last 2 minutes. You'll see just how much 
