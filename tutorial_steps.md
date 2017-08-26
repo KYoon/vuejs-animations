@@ -28,8 +28,7 @@ Open the app in your favorite text editor. Here you'll see a functioning todo li
 First, we need to wrap our conditionally rendered html in a `<transition></transition>` tag.
 
 `createItem.js`
-```
-lang=html
+```html
 <transition>
   <div v-if="showActions" class="buttons">
     <a v-on:click.stop.prevent="addItem()" class="item-button add">Add Item</a>
