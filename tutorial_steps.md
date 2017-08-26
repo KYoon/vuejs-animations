@@ -2,14 +2,7 @@
 
 ## Why?
 
-Transitions and animations are a very useful and important design tool. They can be used to influence or focus user action, 
-make content more readable, and make designs more kinetic and engaging. One of my favorite videos about the power of animations
-is this one - [Juice it or lose it - a talk by Martin Jonasson & Petri Purho](https://www.youtube.com/watch?v=Fy0aCDmgnxg).
-They call adding animations to something making it *juicey* which I think just is the best and most fun way to describe 
-making a design more engaging! While they are speaking of animations in terms of game design, the power that they can have is 
-very clear! If you don't have time to check out the whole video at least watch the last 2 minutes. You'll see just how much 
-animations can change the feel of a design! It almost feels like a completely differnt game even though the all the game 
- mechanics are exactly the same. 
+Transitions and animations are a very useful and important design tool. They can be used to influence or focus user action, make content more readable, and make designs more kinetic and engaging. One of my favorite videos about the power of animations is this one - [Juice it or lose it - a talk by Martin Jonasson & Petri Purho](https://www.youtube.com/watch?v=Fy0aCDmgnxg). They call adding animations to something making it *juicey* which I think just is the best way to describe making a design more engaging! While they are speaking of animations in terms of game design, the power that they can have is very clear! If you don't have time to check out the whole video at least watch the last 2 minutes. You'll see just how much animations can change the feel of a design! It almost feels like a completely differnt game even though the all the game mechanics are exactly the same. 
  
  Before we begin talking details, I think it is also important to note the difference between transitions and animations.
  Transitions are moving from some initial state to an end state. Animations are a little more complicated. While they can 
