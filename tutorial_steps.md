@@ -24,6 +24,7 @@ Open the app in your favorite text editor. Here you'll see a functioning todo li
 
 First, we need to wrap our conditionally rendered html in a `<transition></transition>` tag.
 
+`createItem.js`
 ```html
 ...
 <transition>
@@ -34,7 +35,6 @@ First, we need to wrap our conditionally rendered html in a `<transition></trans
 </transition>
 ...
 ```
-`createItem.js`
 
 Great! This will expose for us 6 CSS classes on the element that is conditionally rendered. In our case on `<div v-if="showActions" class="buttons"></div>`. These classes are:
 * `v-enter` - starting state for enter
@@ -46,6 +46,7 @@ Great! This will expose for us 6 CSS classes on the element that is conditionall
 
 The [vuejs transition documentation](https://vuejs.org/v2/guide/transitions.html) has a great graphic for explaining these different states. So let's leverage these classes to create our transition and make the button fade in and out. Inside our `animations.css` file let's add the classes that we will need. We know that the transition occurs over the course of the active states for enter and leave so we know we will need `v-enter-active` and `v-leave-active`. We also will want to define the start and end states of the transition, so that we know what the element will look like when the transition has completed. So we will also need `v-enter` and `v-leave-to`. 
 
+`animations.css`
 ```css
 .v-enter-active, .v-leave-active {
 
@@ -54,10 +55,10 @@ The [vuejs transition documentation](https://vuejs.org/v2/guide/transitions.html
 
 }
 ```
-`animations.css`
 
 Now that we have all the classes we need, we can apply some css that will create the transition. Here we are trying to create a fade effect. A good css property to create this is opacity. And we also want to add a transition to this opacity, so we can use the transition css property!
 
+`animations.css`
 ```css
 .v-enter-active, .v-leave-active {
  transition: opacity 1s;
@@ -66,10 +67,10 @@ Now that we have all the classes we need, we can apply some css that will create
  opacity: 0;
 }
 ```
-`animations.css`
 
 That's all there is to it! Now the buttons should fade in and out over one course of one second. You may want to tweak the transition duration to a time you see fit, I personally like `0.25s` for my effects, but for learning purposes `1s` is much more pronounced. This is awesome, but what if we wanted to add another transition on a different element? We wouldn't be able to do it cleanly as the name space of the transitions would collide. Lucky for us, the transition wrapper component can take a name attribute. This attribute will prefix our 6 css classes with that name. So let's make that change. Since it is a fade, let's name it fade!
 
+`createItem.js`
 ```html
 ...
 <transition name="fade">
@@ -80,8 +81,8 @@ That's all there is to it! Now the buttons should fade in and out over one cours
 </transition>
 ...
 ```
-`createItem.js`
 
+`animations.css`
 ```css
 .fade-enter-active, .fade-leave-active {
   transition: opacity 1s
@@ -90,7 +91,6 @@ That's all there is to it! Now the buttons should fade in and out over one cours
   opacity: 0
 }
 ```
-`animations.css`
 
 This allows us to scope and reuse our animations across our app! This is just an example of a simple transition, but the possibilities are endless. 
 
@@ -103,6 +103,7 @@ Now that we know some of the basics about transitions, let's tackle something a 
 
 With that in mind let's begin coding our transition. First let's add the wrapper around our rendered list.
 
+`items.js`
 ```html
 ...
 <transition-group name="list">
@@ -110,10 +111,10 @@ With that in mind let's begin coding our transition. First let's add the wrapper
 </transition-group>
 ...
 ```
-`items.js`
 
 Let's zero in on the important parts here. We have an `<item>` component that we are rendering as a list with `v-for`. We wrapped this component in a `<transition-group>` with the name `list`. And, we have bound a unique key on the item `item.id`. Now that we have taken care of everything in the markup, all we need to do is add the css hooks!
 
+`animations.css`
 ```css
 .list-enter-active, .list-leave-active {
   transition: all 1s;
@@ -123,7 +124,6 @@ Let's zero in on the important parts here. We have an `<item>` component that we
   transform: translateX(30px);
 }
 ```
-`animations.css`
 
 Here we are utilizing the different css states to slide in our newly added list items. However, one problem is that when we transition out the elements, the list snaps the elements into their new places. Wouldn't it be much nicer if those elements gracefully slid to their new positions? We will tackle this next. 
 
@@ -133,6 +133,7 @@ In the previous step we implemented a transition effect for adding and removing 
 
 This leads us to another concept of `list-transitions` - the `v-move` class. This class is added to a list item when its position is changing. This makes our job of adding a transition effect to any item that changes position really simple!
 
+`animations.css`
 ```css
 .list-move {
   transition: transform 1s;
@@ -147,7 +148,6 @@ This leads us to another concept of `list-transitions` - the `v-move` class. Thi
   transform: translateX(30px);
 }
 ```
-`animations.css`
 
 Here we simply add the css move hook and give it a transition. We also can add an absolute position and width to our elements leaving hooks so that they are taken out of the flow of the list during the transition allowing the items that need to move the space to do so.
 
@@ -159,18 +159,22 @@ We spent all this time talking about transitions, let's throw in an animation fo
 
 Instead of a simple slide in, let's make our list components bounce in and out of the list. Let's change the name of our `transition-group` component so we don't tamper with our nice and neat `list` transition. 
 
+`items.js`
 ```html
 ...
 <transition-group name="list-bounce">
-  <item v-for="(item, index) in items" v-bind:key="item.id" :item="item" :index="index" @togglechecked="passToggleChecked" @change-priority="passChangePriority"></item>
+  <item v-for="(item, index) in items" v-bind:key="item.id" :item="item" :index="index" @toggle-checked="passToggleChecked" @change-priority="passChangePriority"></item>
 </transition-group>
 ...
 ```
-`items.js`
 
 And let's add a css animation on our active enter and leave css hooks.
 
+`animations.css`
 ```css
+.list-bounce-move {
+  transition: transform 1s;
+}
 .list-bounce-enter-active, .list-bounce-leave-active {
   position: absolute;
   width: 100%;
@@ -194,7 +198,6 @@ And let's add a css animation on our active enter and leave css hooks.
   }
 }
 ```
-`animations.css`
 
 Here you'll notice a couple things. We've defined a css animation called bounce-in. All it does is transform the scale of our element over some duration. You'll notice that we've seperated out the animation on the `enter-active` and `leave-active` class so that we can play the animation fowards and backwards depending on the action. And finally our `v-enter` and `v-leave-to` hooks. They are not necessary because the animation takes care of this. 
 
