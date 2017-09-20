@@ -106,7 +106,7 @@ With that in mind let's begin coding our transition. First let's add the wrapper
 ```html
 ...
 <transition-group name="list">
-  <item v-for="(item, index) in items" v-bind:key="item.id" :item="item" :index="index" @togglechecked="passToggleChecked" @change-priority="passChangePriority"></item>
+  <item v-for="(item, index) in items" v-bind:key="item.id" :item="item" :index="index" @toggle-checked="passToggleChecked" @change-priority="passChangePriority"></item>
 </transition-group>
 ...
 ```
